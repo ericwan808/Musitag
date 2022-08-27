@@ -23,7 +23,7 @@ function SongList() {
     useEffect(() => {retrieveSongs();},[]);
 
     const retrieveSongs = () => {
-        axios.get('http://localhost:5000/api/').then(res => {
+        axios.get('/api/').then(res => {
             setSongs(res.data);
         })
     };
@@ -32,7 +32,7 @@ function SongList() {
         const tagsLowerCase = searchTags.toLowerCase()
         const tagList = tagsLowerCase.split(", ");
         let query = tagList.join('+');
-        axios.get('http://localhost:5000/api/tags/?q='+query).then(res => {
+        axios.get('/api/tags/?q='+query).then(res => {
             setSongs(res.data)});
     }
 

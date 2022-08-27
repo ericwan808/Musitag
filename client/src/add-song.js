@@ -14,7 +14,7 @@ function AddSong() {
             "tags": tagList
         }
         
-        axios.post("http://localhost:5000/api/add",newSong).then(res => console.log(res));
+        axios.post("/api/add",newSong).then(res => console.log(res));
         setTitle('');
         setArtist('');
         setTags('');
