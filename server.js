@@ -1,11 +1,10 @@
 const express = require('express');
 const path = require('path');
-const app = express();
-const PORT = process.env.PORT || 5000;
 const fs = require('fs');
 const cors = require("cors");
+const mongoose = require('mongoose');
 
-
+const app = express();
 app.use(express.json());
 app.use(cors());
 
@@ -17,7 +16,16 @@ if(true){
     })
 }
 
+const uri = "mongodb+srv://waner:1HkiGIKmbabxSz9u@cluster0.wnuipjt.mongodb.net/?retryWrites=true&w=majority"
+mongoose.connect(uri);
+const connection = mongoose.connection;
+connection.once('open', () => {
+  console.log("MongoDB database connection established successfully");
+})
 
+const apiRouter = require('./apiRouter')
+app.use('/api', apiRouter);
+/*
 app.get('/api/', (req, res) => {
     fs.readFile("./data.json", "utf-8", (err, jsonString) => {
         const songList = JSON.parse(jsonString).songList;
@@ -57,6 +65,9 @@ app.post('/api/add', (req, res) => {
         res.status(200).send({"message":"Song Added"});
     })
 });
+*/
+
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
     console.log("Server is running on port: " + PORT);

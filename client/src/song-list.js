@@ -7,11 +7,9 @@ function Song(props) {
         <td>{props.song.title}</td>
         <td>{props.song.artist}</td>
         <td>{props.song.tags.join(", ")}</td>
-        {/*
         <td>
             <a href='#' onClick={() => {props.deleteSong(props.song._id)}}>delete</a>
         </td>
-        */}
     </tr>
 )}
 
@@ -36,12 +34,11 @@ function SongList() {
             setSongs(res.data)});
     }
 
-    /*
     const deleteSong = (id) => {
-        axios.delete('http://localhost:5000/songs/'+id).then(res => {console.log(res.data);});
+        axios.delete('/api/'+id).then(res => {console.log(res.data);});
         setSongs(songs.filter(element => element._id!==id))
     }
-    */
+
     function changeSearchTags(e) {
         setSearchTags(e.target.value);
     }
@@ -60,11 +57,12 @@ function SongList() {
                     <th>Title</th>
                     <th>Artist</th>
                     <th>Tags</th>
+                    <th>Edit</th>
                 </tr>
             </thead>
             <tbody>
                 {
-                    songs.map((song) => <Song song={song} key={song.title} />)
+                    songs.map((song) => <Song song={song} key={song._id} deleteSong={deleteSong}/>)
                 }
             </tbody>
         </table>
