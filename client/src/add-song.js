@@ -4,6 +4,7 @@ import axios from 'axios';
 function AddSong() {
     const [title, setTitle] = useState('');
     const [artist, setArtist] = useState('');
+    const [link, setLink] = useState('');
     const [tags, setTags] = useState('');
 
     const onSubmit = () => {
@@ -11,12 +12,14 @@ function AddSong() {
         const newSong = {
             "title": title,
             "artist": artist,
+            "link": link,
             "tags": tagList
         }
         
-        axios.post("/api/add",newSong).then(res => console.log(res));
+        axios.post("http://localhost:5000/api/add",newSong).then(res => console.log(res));
         setTitle('');
         setArtist('');
+        setLink('');
         setTags('');
     }
 
@@ -32,6 +35,10 @@ function AddSong() {
         setTags(e.target.value);
     }
 
+    function changeLink(e) {
+        setLink(e.target.value);
+    }
+
     return (
         <div>
             <h3>Add New Song</h3>
@@ -45,6 +52,10 @@ function AddSong() {
                     <input type="text" required value={artist} onChange={changeArtist} />
                 </div>
                 <div className='form-input'>
+                    <label>Link: </label>
+                    <input type="text" required value={link} onChange={changeLink} />
+                </div>
+                <div className='form-input'>
                     <label>Tags: </label>
                     <input type="text" required value={tags} onChange={changeTags} />
                 </div>
@@ -56,77 +67,3 @@ function AddSong() {
 }
 
 export default AddSong;
-/*
-export default class AddSong extends Component {
-
-    constructor(props) {
-        super(props);
-
-        this.onChangeTitle = this.onChangeTitle.bind(this);
-        this.onChangeArtist = this.onChangeArtist.bind(this);
-        this.onChangeTags = this.onChangeTags.bind(this);
-        this.onSubmit = this.onSubmit.bind(this);
-
-        this.state = {
-            title: '',
-            artist: '',
-            tags: '',
-        }
-    }
-
-    onChangeTitle(e) {
-        this.setState({ title: e.target.value});
-    }
-
-    onChangeArtist(e) {
-        this.setState({ artist: e.target.value});
-    }
-
-    onChangeTags(e) {
-        this.setState({ tags: e.target.value});
-    }
-
-    onSubmit(e) {
-        e.preventDefault();
-        const song = {
-            title: this.state.title,
-            artist: this.state.artist,
-            tags: this.state.tags
-        }
-
-        axios.post('http://localhost:5000/songs/add', song).then( res => console.log(res.data));
-        console.log(song);
-        this.setState({
-            title: '',
-            artist: '',
-            tags: ''
-        })
-    }
-
-    render () {
-        return (
-            <div>
-                <h3>Add New Song</h3>
-                <form onSubmit={this.onSubmit}>
-                    <div className="form-group">
-                        <label>Title: </label>
-                        <input type="text" required className="form-control" value={this.state.title} onChange={this.onChangeTitle} />
-                    </div>
-                    <div className="form-group">
-                        <label>Artist: </label>
-                        <input type="text" required className="form-control" value={this.state.artist} onChange={this.onChangeArtist} />
-                    </div>
-                    <div className="form-group">
-                        <label>Tags: </label>
-                        <input type="text" required className='form-control' value={this.state.tags} onChange={this.onChangeTags} />
-                    </div>
-
-                    <div className="form-group">
-                        <input type="submit" value="Add Song" className="btn btn-primary" />
-                    </div>
-                </form>
-            </div>
-        )
-    }
-}
-*/

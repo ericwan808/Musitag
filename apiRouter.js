@@ -11,11 +11,13 @@ router.route('/').get((req, res) => {
 router.route('/add').post((req, res) => {
   const title = req.body.title;
   const artist = req.body.artist;
+  const link = req.body.link;
   const tags = req.body.tags;
 
   const newSong = new Song({
     title,
     artist,
+    link,
     tags,
   });
 
@@ -50,6 +52,7 @@ router.route('/update/:id').post((req, res) => {
     .then(song => {
       song.title = req.body.title;
       song.artist = req.body.artist;
+      song.link = req.body.link;
       song.tags = req.body.tags;
 
       song.save()

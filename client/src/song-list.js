@@ -6,6 +6,7 @@ function Song(props) {
     <tr>
         <td>{props.song.title}</td>
         <td>{props.song.artist}</td>
+        <td><a href={props.song.link} target='_blank'>Link</a></td>
         <td>{props.song.tags.join(", ")}</td>
         <td>
             <a href='#' onClick={() => {props.deleteSong(props.song._id)}}>delete</a>
@@ -21,7 +22,7 @@ function SongList() {
     useEffect(() => {retrieveSongs();},[]);
 
     const retrieveSongs = () => {
-        axios.get('/api/').then(res => {
+        axios.get('http://localhost:5000/api/').then(res => {
             setSongs(res.data);
         })
     };
@@ -30,12 +31,12 @@ function SongList() {
         const tagsLowerCase = searchTags.toLowerCase()
         const tagList = tagsLowerCase.split(", ");
         let query = tagList.join('+');
-        axios.get('/api/tags/?q='+query).then(res => {
+        axios.get('http://localhost:5000/api/tags/?q='+query).then(res => {
             setSongs(res.data)});
     }
 
     const deleteSong = (id) => {
-        axios.delete('/api/'+id).then(res => {console.log(res.data);});
+        axios.delete('http://localhost:5000/api/'+id).then(res => {console.log(res.data);});
         setSongs(songs.filter(element => element._id!==id))
     }
 
@@ -56,6 +57,7 @@ function SongList() {
                 <tr>
                     <th>Title</th>
                     <th>Artist</th>
+                    <th>Link</th>
                     <th>Tags</th>
                     <th>Edit</th>
                 </tr>
