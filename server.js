@@ -16,7 +16,7 @@ if(true){
     })
 }
 
-const uri = "mongodb+srv://waner:1HkiGIKmbabxSz9u@cluster0.wnuipjt.mongodb.net/?retryWrites=true&w=majority"
+const uri = process.env.MONGODB_URI;
 mongoose.connect(uri);
 const connection = mongoose.connection;
 connection.once('open', () => {
