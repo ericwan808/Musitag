@@ -9,7 +9,7 @@ const cors = require("cors");
 app.use(express.json());
 app.use(cors());
 
-if(process.env.NODE_ENV === 'proudction'){
+if(true){
     app.use(express.static(path.join(__dirname, '/client/build')));
 
     app.get('*', (req, res) => {
