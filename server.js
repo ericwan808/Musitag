@@ -16,12 +16,28 @@ if(true){
     })
 }
 
-const uri = process.env.MONGODB_URI;
+const uri = process.env.MONGODB_URI || "mongodb+srv://waner:1HkiGIKmbabxSz9u@cluster0.wnuipjt.mongodb.net/?retryWrites=true&w=majority"
+;
+
+/*
 mongoose.connect(uri);
 const connection = mongoose.connection;
 connection.once('open', () => {
   console.log("MongoDB database connection established successfully");
 })
+*/
+const connectDB = async () => {
+    try {
+      await mongoose.connect(uri);
+  
+      console.log("MongoDB Connection Success 👍");
+    } catch (error) {
+      console.log("MongoDB Connection Failed 💥");
+      process.exit(1);
+    }
+};
+
+connectDB();
 
 const apiRouter = require('./apiRouter')
 app.use('/api', apiRouter);
