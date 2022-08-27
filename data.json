@@ -1,0 +1,38 @@
+{
+  "songList": [
+    {
+      "title": "Beethoven Symphony No 5",
+      "artist": "Beethoven",
+      "tags": [
+        "epic",
+        "classical"
+      ]
+    },
+    {
+      "title": "Mendelssohn Violin Concerto",
+      "artist": "Mendelssohn",
+      "tags": [
+        "concerto",
+        "classical"
+      ]
+    },
+    {
+      "title": "Rachmoninoff Piano Concerto No 2",
+      "artist": "Rachmoninoff",
+      "tags": [
+        "classical",
+        "epic",
+        "concerto"
+      ]
+    },
+    {
+      "title": "Heikousen",
+      "artist": "Sayuri",
+      "tags": [
+        "anime",
+        "jpop",
+        "heated"
+      ]
+    }
+  ]
+}
