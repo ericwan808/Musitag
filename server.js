@@ -7,7 +7,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-if(false){
+if(true){
     app.use(express.static(path.join(__dirname, '/client/build')));
 
     app.get('/', (req, res) => {
