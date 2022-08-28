@@ -12,12 +12,16 @@ router.route('/add').post((req, res) => {
   const title = req.body.title;
   const artist = req.body.artist;
   const link = req.body.link;
+  const averageRating = req.body.rating;
+  const user = req.body.user;
   const tags = req.body.tags;
 
   const newSong = new Song({
     title,
     artist,
     link,
+    averageRating,
+    user,
     tags,
   });
 
@@ -53,6 +57,8 @@ router.route('/update/:id').post((req, res) => {
       song.title = req.body.title;
       song.artist = req.body.artist;
       song.link = req.body.link;
+      song.averageRating = req.body.rating;
+      song.user = req.body.user;
       song.tags = req.body.tags;
 
       song.save()
