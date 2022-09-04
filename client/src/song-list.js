@@ -32,8 +32,7 @@ function SongList() {
     };
 
     const findTag = () => {
-        const tagsLowerCase = searchTags.toLowerCase()
-        const tagList = tagsLowerCase.split(", ");
+        const tagList = searchTags.split(", ");
         let query = tagList.join('+');
         axios.get('/api/tags/?q='+query).then(res => {
             setSongs(res.data.sort((a,b) =>{ return b.averageRating - a.averageRating}))});
