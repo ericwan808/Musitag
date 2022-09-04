@@ -182,8 +182,8 @@ function AddSong() {
                             <input type="checkbox" value="Melodic" id="17"/>
                         </div>
                         <div className='tag'>
-                            <label>Grand</label>
-                            <input type="checkbox" value="Grand" id="18"/>
+                            <label>Spiritual</label>
+                            <input type="checkbox" value="Spiritual" id="18"/>
                         </div>
                         <div className='tag'>
                             <label>Calm</label>
