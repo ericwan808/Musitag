@@ -81,18 +81,25 @@ th {
     background: #ccc;
 }
 
-.form-group {
+.form {
     border-radius: 5px;
     background-color: #f2f2f2;
-    padding: 20px;
+    padding: 15px;
+}
+
+.form-group {
+    display: inline-block;
+    width: 49%;
+    margin: 5px;
+    vertical-align: top;
 }
 
 .form-input {
-    width: 70%;
+    width: 100%;
 }
 
 .form-input label {
-    width: 7%;
+    width: 18%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -102,7 +109,7 @@ th {
 }
 
 .form-input input {
-    width: 93%;
+    width: 82%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -111,12 +118,16 @@ th {
     box-sizing: border-box;
 }
 
-.form-button {
-    width: 70%;
+.form-button-container {
+    width: 100%;
+    text-align: center
+}
+
+.form-button{
+    width: 50%;
     background-color: #333;
     color: white;
     padding: 14px 20px;
-    margin: 8px 0;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -125,4 +136,25 @@ th {
   
 .form-button:hover {
     background-color: #111;
+}
+
+.tag {
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.tag-name {
+    margin-right: 8px;
+}
+
+.tag-type {
+    padding: 12px 20px;
+    margin: 8px 0 12px 0;
+    border: 1px solid #333;
+    border-radius: 4px;
+}
+
+#custom-tag-input {
+    margin-left: 5px;
 }
