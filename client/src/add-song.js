@@ -32,7 +32,6 @@ function AddSong() {
         setTitle('');
         setArtist('');
         setLink('');
-        setRating(10);
         setUser('');
         setCustomTag('');
         for(let i=1; i<25; i++){
