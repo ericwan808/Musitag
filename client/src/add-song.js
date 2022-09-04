@@ -111,6 +111,10 @@ function AddSong() {
                             <input type="checkbox" value="Classical" id="1"/>
                         </div>
                         <div className='tag'>
+                            <label>East Asian Pop</label>
+                            <input type="checkbox" value="East Asian Pop" id="13"/>
+                        </div>
+                        <div className='tag'>
                             <label>Pop</label>
                             <input type="checkbox" value="Pop" id="2"/>
                         </div>
@@ -156,10 +160,6 @@ function AddSong() {
                         <div className='tag'>
                             <label>Heavy Metal</label>
                             <input type="checkbox" value="Heavy Metal" id="12"/>
-                        </div>
-                        <div className='tag'>
-                            <label>East Asian Pop</label>
-                            <input type="checkbox" value="East Asian Pop" id="13"/>
                         </div>
                     </div>
                     <div className='tag-type'>
